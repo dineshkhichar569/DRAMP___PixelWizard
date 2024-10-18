@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Slot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: red;
+        }
+
+        .booked {
+            background-color: #ffcccc; /* Light red for booked slots */
+            color: #a00; /* Dark red text */
+            text-decoration: line-through; /* Optional: strike-through for booked slots */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Slot</h1>
+        <form id="bookingForm">
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Select Time:</label>
+            <select id="time" required>
+                <option value="" disabled selected>Select time</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="01:00 PM">01:00 PM</option>
+                <option value="02:00 PM">02:00 PM</option>
+            </select>
+
+            <h3>Your Details:</h3>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <button type="submit">Book Slot</button>
+        </form>
+
+        <div id="message" class="message"></div>
+        
+        <h2>Booked Slots</h2>
+        <ul id="bookedSlotsList"></ul>
+    </div>
+
+
+  <script>
+
+        // Store booked slots
+        let bookedSlots = [];
+
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const slotKey = `${date} ${time}`; // Create a unique key for the date and time
+
+            // Check if the slot is already booked
+            if (bookedSlots.includes(slotKey)) {
+                showMessage('This slot is already booked! Please select another one.');
+            } else {
+                // Book the slot
+                bookedSlots.push(slotKey);
+                showMessage(`Slot booked successfully for ${name} on ${date} at ${time}.`);
+                sendBookingEmail(name, phone, email, date, time); // Send confirmation email
+                setReminder(name, email, date, time); // Set reminder
+                displayBookedSlots();
+                clearForm();
+            }
+        });
+
+        // Function to send booking confirmation email
+        function sendBookingEmail(name, phone, email, date, time) {
+            const templateParams = {
+                to_name: name,
+                from_name: "Booking Service",
+                booking_date: date,
+                booking_time: time,
+                phone: phone,
+                from_email: email
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, (err) => {
+                    console.log('FAILED...', err);
+                });
+        }
+
+        // Function to set a reminder email 30 minutes before the booked time
+        function setReminder(name, email, date, time) {
+            const reminderTime = new Date(date + ' ' + time);
+            reminderTime.setMinutes(reminderTime.getMinutes() - 30); // Set reminder for 30 minutes before
+
+            const now = new Date();
+            const timeToReminder = reminderTime - now;
+
+            if (timeToReminder > 0) {
+                setTimeout(() => {
+                    const templateParams = {
+                        to_name: name,
+                        from_name: "Booking Service",
+                        booking_date: date,
+                        booking_time: time,
+                        phone: "N/A",
+                        from_email: email
+                    };
+
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                        .then((response) => {
+                            console.log('Reminder sent!', response.status, response.text);
+                        }, (err) => {
+                            console.log('Failed to send reminder...', err);
+                        });
+                }, timeToReminder);
+            }
+        }
+
+        // Function to display booked slots in the list
+        function displayBookedSlots() {
+            const bookedSlotsList = document.getElementById('bookedSlotsList');
+            bookedSlotsList.innerHTML = ''; // Clear the list before adding
+
+            bookedSlots.forEach(slot => {
+                const li = document.createElement('li');
+                li.textContent = slot; // Display the booked slot
+                bookedSlotsList.appendChild(li);
+            });
+        }
+
+        function showMessage(message) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = message;
+        }
+
+        function clearForm() {
+            document.getElementById('bookingForm').reset();
+            document.getElementById('message').textContent = '';
+            document.getElementById('time').value = ""; // Reset time selection
+        }
+    </script>
+</body>
+</html>

@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     font-family: "Montserrat", sans-serif;
 }
-body{
-    background-color: #f6d4d4;
+
+body {
+    background-color: white;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,9 +20,11 @@ nav{
     font-size: 18px;
     padding: 30px;
 }
-nav .logo{
+
+nav .logo {
     font-size: 32px;
 }
+
 nav ul {
     list-style: none;
     display: flex;
@@ -30,7 +33,7 @@ nav ul {
     width: 400px;
 }
 
-.main-one{
+.main-one {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,56 +41,65 @@ nav ul {
     height: 60vh;
     gap: 20px;
 }
-.Quote-one{
+
+.Quote-one {
     font-size: 20px;
     font-weight: 500;
 }
 
 
-.Quote-two{
+.Quote-two {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-.Quote-two .text{
+
+.Quote-two .text {
     position: relative;
     font-size: 60px;
     font-weight: 900;
 }
 
-.text.first-text{
+.text.first-text {
     color: black;
 }
-.text.sec-text{
+
+.text.sec-text {
     color: red;
 }
-.text.sec-text::before{
+
+.text.sec-text::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #f6d4d4;
+    background-color: white;
     border-left: 5px solid rgb(0, 0, 0);
     animation: animate 4s steps(12) infinite;
 }
+
 @keyframes animate {
-    40%, 60%{
+
+    40%,
+    60% {
         left: calc(100% + 4px);
     }
-    100%{
+
+    100% {
         left: 0%;
     }
 }
 
-.Quote-three{
+.Quote-three {
     display: flex;
     position: relative;
     margin-top: 50px;
 }
-.Quote-three input{
+
+.Quote-three input {
     width: 800px;
     height: 60px;
     border-radius: 10px;
@@ -98,10 +110,12 @@ nav ul {
     font-weight: 500;
     padding-right: 170px;
 }
-.Quote-three input::placeholder{
+
+.Quote-three input::placeholder {
     font-size: 18px;
 }
-.Quote-three button{
+
+.Quote-three button {
     border-radius: 10px;
     border: none;
     height: 50px;
@@ -115,13 +129,14 @@ nav ul {
     top: 5px;
 }
 
-.Quote-four{
+.Quote-four {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
-.Quote-four button{
+
+.Quote-four button {
     background-color: #f5faff;
     border: none;
     padding: 4px;
@@ -131,95 +146,357 @@ nav ul {
     cursor: pointer;
     color: rgb(60, 60, 60);
 }
-.Quote-four button:hover{
+
+.Quote-four button:hover {
     background-color: lightgray;
     box-shadow: 0px 6px 10px #f5faff;
 }
 
-.main-two{
-
+.main-two {
     margin: 10px 100px;
-    border: 1px solid brown;
     display: flex;
     justify-content: space-between;
     gap: 20px;
     position: relative;
+}
 
-    .cards{
-        display: flex;
-        flex-direction: column;
-        align-items:flex-end;
-        gap: 50px;
-        list-style: none;
-        /* position: relative; */
-        border: 5px solid green;
-        width: 50%;
-    }
-    .card{
-        background-color: lightblue;
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 50px;
+    list-style: none;
+    position: relative;
+    width: 50%;
+}
+
+.card {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    height: 250px;
+    width: 550px;
+    position: sticky;
+    top: 20px;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.left-side-card {
+    width: 50%;
+}
+
+.left-side-card img {
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.card .right-side-card {
+    width: 50%;
+    padding: 20px 10px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right-side-card bold {
+    color: blue;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.left-text {
+    position: relative;
+    height: 700px;
+    width: 50%;
+
+}
+
+.left-text {
+    position: sticky;
+    top: 20px;
+    list-style: none;
+
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+}
+
+.container {
+    padding: 10px 35px;
+    position: relative;
+    width: 50%;
+}
+
+.text-box {
+    padding: 20px 30px;
+    background: #fff;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.right-container {
+    left: 0;
+}
+
+.right-container {
+    left: 50%;
+}
+
+.container img {
+    position: absolute;
+    width: 40px;
+    border-radius: 40px;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+
+.right-container img {
+    left: -20px;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #dddfe2;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+}
+
+.left-container-arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid white;
+    right: -14px;
+}
+
+.right-container-arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid white;
+    left: -14px;
+}
+
+.main-three {
+    background-color: #dddfe2;
+    margin: 120px;
+    border-radius: 10px;
+    height: 650px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.main-three-right{
+    width: 60%;
+    border-radius: 10px;
+    padding: 100px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+.main-three-right p:nth-of-type(1){
+    font-size: 40px;
+    font-weight: 900;
+}
+.main-three-right p:nth-of-type(2){
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.main-three-right ul{
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 30px;
+    list-style:disc;
+    padding-bottom: 20px;
+}
+
+.main-three-right button{
+    background-color: #13695F;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+}
+.main-three-left {
+    width: 40%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.all-Mentors{
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    margin: 100px;
+}
+.all-Mentors button{
+    background-color: #13695F;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.main-four{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 50px;
+}
+.main-four .type-prof{
+    font-size: 30px;
+    font-weight: 900;
+}
+.main-four ul{
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    margin-bottom: 50px;
+}
+.main-four ul .all-card{
+    background-color: antiquewhite;
+    width: 300px;
+    height: 500px;
+    border-radius: 20px;
+}
+.all-card div:nth-of-type(1) img{
+    background-color: #13695F;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.all-card .right-side-card{
+    padding: 20px;
+    line-height: 2;
+    overflow-y:auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    height: 36%;
+    border-radius: 20px;
+}
+
+.main-five{
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background:#f5faff;
+        padding: 20px;
         border-radius: 10px;
-        border: 2px solid black;
-        height: 300px;
-        width: 500px;
-        position: sticky;
-        top: 50px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 100px;
     }
+    
+    h1 {
+        text-align: center;
+        padding: 10px;
+    }
+    h2{
+        margin-bottom: 30px;
+    }
+    h3{
+        margin: 30px 0 10px 0;
+    }
+    
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    input, select, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button {
+        background-color:#13695F;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+        transition: box-shadow 0.2s;
+        margin-top: 30px;
+    }
+    
+    button:hover {
+        background-color:#0b5148;
+        box-shadow: 0 5px 10px #13695F;
+    }
+    
+    .message {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+        color: red;
+    }
+    
+    .booked {
+        background-color: #ffcccc; /* Light red for booked slots */
+        color: #a00; /* Dark red text */
+        text-decoration: line-through; /* Optional: strike-through for booked slots */
+    }
+    
+}
 
-    .left-text{
-        border: 2px solid;
-        position: relative;
-        height: 700px;
-        width: 50%;
 
-    }
-    .left-text{
-        position: sticky;
-        top: 20px;
-        list-style: none;
 
-    }
-    .timeline{
-        position: relative;
-        max-width: 1200px;
-    }
-    .container{
-        padding: 10px 50px;
-        position: relative;
-        width: 50%;
-    }
-    .text-box{
-        padding: 20px 30px;
-        background: #fff;
-        position: relative;
-        border-radius: 6px;
-        font-size: 15px;
-    }
-    .right-container{
-        left: 0;
-    }
-    .right-container{
-        left: 50%;
-    }
-    .container img{
-        position: absolute;
-        width: 40px;
-        border-radius: 40px;
-        right: -20px;
-        top: 32px;
-        z-index: 10;
-    }
-    .right-container img{
-        left: -20px;
-    }
-    .timeline::after{
-        content: "";
-        position: absolute;
-        width: 6px;
-        height: 100%;
-        background: #fff;
-        top: 0;
-        left: 50%;
-        margin-left: -3px;
-        z-index: -1;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    margin-top: 150px;
+    background-color: #13695F;
+    height: 200px;
 }
