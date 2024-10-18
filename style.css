@@ -1,6 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background-color: #f6d4d4;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aqua;
+    font-size: 18px;
+    padding: 30px;
+}
+nav .logo{
+    font-size: 32px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.main-one{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    gap: 20px;
+}
+.Quote-one{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.Quote-two{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.Quote-two .text{
+    position: relative;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.text.first-text{
+    color: black;
+}
+.text.sec-text{
+    color: red;
+}
+.text.sec-text::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f6d4d4;
+    border-left: 5px solid rgb(0, 0, 0);
+    animation: animate 4s steps(12) infinite;
+}
+@keyframes animate {
+    40%, 60%{
+        left: calc(100% + 4px);
+    }
+    100%{
+        left: 0%;
+    }
+}
+
+.Quote-three{
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+}
+.Quote-three input{
+    width: 800px;
+    height: 60px;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid grey;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 170px;
+}
+.Quote-three input::placeholder{
+    font-size: 18px;
+}
+.Quote-three button{
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 150px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #13695F;
+    color: white;
+    position: absolute;
+    right: 4px;
+    top: 5px;
+}
+
+.Quote-four{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.Quote-four button{
+    background-color: #f5faff;
+    border: none;
+    padding: 4px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    color: rgb(60, 60, 60);
+}
+.Quote-four button:hover{
+    background-color: lightgray;
+    box-shadow: 0px 6px 10px #f5faff;
+}
+
+.main-two{
+
+    margin: 10px 100px;
+    border: 1px solid brown;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+
+    .cards{
+        display: flex;
+        flex-direction: column;
+        align-items:flex-end;
+        gap: 50px;
+        list-style: none;
+        /* position: relative; */
+        border: 5px solid green;
+        width: 50%;
+    }
+    .card{
+        background-color: lightblue;
+        border-radius: 10px;
+        border: 2px solid black;
+        height: 300px;
+        width: 500px;
+        position: sticky;
+        top: 50px;
+    }
+
+    .left-text{
+        border: 2px solid;
+        position: relative;
+        height: 700px;
+        width: 50%;
+
+    }
+    .left-text{
+        position: sticky;
+        top: 20px;
+        list-style: none;
+
+    }
+    .timeline{
+        position: relative;
+        max-width: 1200px;
+    }
+    .container{
+        padding: 10px 50px;
+        position: relative;
+        width: 50%;
+    }
+    .text-box{
+        padding: 20px 30px;
+        background: #fff;
+        position: relative;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+    .right-container{
+        left: 0;
+    }
+    .right-container{
+        left: 50%;
+    }
+    .container img{
+        position: absolute;
+        width: 40px;
+        border-radius: 40px;
+        right: -20px;
+        top: 32px;
+        z-index: 10;
+    }
+    .right-container img{
+        left: -20px;
+    }
+    .timeline::after{
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        background: #fff;
+        top: 0;
+        left: 50%;
+        margin-left: -3px;
+        z-index: -1;
+    }
+    left-container-arrow
 }
