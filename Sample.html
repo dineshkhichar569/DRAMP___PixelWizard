@@ -3,201 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Slot</title>
+    <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
+        /* Base Styles */
+.main-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    gap: 20px;
+}
 
-        .container {
-            max-width: 400px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+.Quote-one {
+    font-size: 20px;
+    font-weight: 500;
+}
 
-        h1 {
-            text-align: center;
-        }
+.Quote-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        label {
-            display: block;
-            margin-top: 10px;
-        }
+.Quote-two .text {
+    position: relative;
+    font-size: 60px;
+    font-weight: 900;
+    z-index: -1;
+}
 
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.text.first-text {
+    color: black;
+}
 
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+.text.sec-text {
+    color: red;
+}
 
-        button:hover {
-            background-color: #218838;
-        }
+.text.sec-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-left: 5px solid rgb(0, 0, 0);
+    animation: animate 4s steps(12) infinite;
+}
 
-        .message {
-            margin-top: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: red;
-        }
+@keyframes animate {
+    40%,
+    60% {
+        left: calc(100% + 4px);
+    }
 
-        .booked {
-            background-color: #ffcccc; /* Light red for booked slots */
-            color: #a00; /* Dark red text */
-            text-decoration: line-through; /* Optional: strike-through for booked slots */
-        }
+    100% {
+        left: 0%;
+    }
+}
+
+.Quote-three {
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    z-index: -1;
+}
+
+.Quote-three input {
+    width: 800px;
+    height: 60px;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid grey;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 170px;
+}
+
+.Quote-three input::placeholder {
+    font-size: 18px;
+}
+
+.Quote-three button {
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 150px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #13695F;
+    color: white;
+    position: absolute;
+    right: 4px;
+    top: 5px;
+}
+
+.Quote-four {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Quote-four button {
+    background-color: #f5faff;
+    border: none;
+    padding: 4px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    color: rgb(60, 60, 60);
+}
+
+.Quote-four button:hover {
+    background-color: lightgray;
+    box-shadow: 0px 6px 10px #f5faff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Tablet and below */
+    .Quote-two .text {
+        font-size: 40px;
+    }
+
+    .Quote-three input {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        padding-right: 140px;
+    }
+
+    .Quote-three button {
+        height: 45px;
+        width: 130px;
+        font-size: 14px;
+    }
+
+    .Quote-four {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .Quote-four button {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile */
+    .main-one {
+        height: auto;
+        padding: 20px;
+    }
+
+    .Quote-one {
+        font-size: 18px;
+    }
+
+    .Quote-two .text {
+        font-size: 30px;
+    }
+
+    .Quote-three {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .Quote-three input {
+        width: 100%;
+        height: 45px;
+        font-size: 14px;
+        padding-right: 120px;
+    }
+
+    .Quote-three button {
+        height: 40px;
+        width: 120px;
+        font-size: 13px;
+        position: static;
+        margin-top: 10px;
+    }
+
+    .Quote-four {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Quote-four button {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Booking Slot</h1>
-        <form id="bookingForm">
-            <label for="date">Select Date:</label>
-            <input type="date" id="date" required>
 
-            <label for="time">Select Time:</label>
-            <select id="time" required>
-                <option value="" disabled selected>Select time</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="12:00 PM">12:00 PM</option>
-                <option value="01:00 PM">01:00 PM</option>
-                <option value="02:00 PM">02:00 PM</option>
-            </select>
+    <main class="main-one">
+        <div class="Quote-one">Master a new skill, kickstart your passion project, and achieve the career you’ve always dreamed of.</div>
+        <div class="Quote-two">
+            <span class="text first-text">One Mentor at a Time, </span>
+            <span class="text sec-text"></span>
+        </div>
 
-            <h3>Your Details:</h3>
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-
-            <button type="submit">Book Slot</button>
-        </form>
-
-        <div id="message" class="message"></div>
-        
-        <h2>Booked Slots</h2>
-        <ul id="bookedSlotsList"></ul>
-    </div>
-
-
-  <script>
-
-        // Store booked slots
-        let bookedSlots = [];
-
-        document.getElementById('bookingForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const slotKey = `${date} ${time}`; // Create a unique key for the date and time
-
-            // Check if the slot is already booked
-            if (bookedSlots.includes(slotKey)) {
-                showMessage('This slot is already booked! Please select another one.');
-            } else {
-                // Book the slot
-                bookedSlots.push(slotKey);
-                showMessage(`Slot booked successfully for ${name} on ${date} at ${time}.`);
-                sendBookingEmail(name, phone, email, date, time); // Send confirmation email
-                setReminder(name, email, date, time); // Set reminder
-                displayBookedSlots();
-                clearForm();
-            }
-        });
-
-        // Function to send booking confirmation email
-        function sendBookingEmail(name, phone, email, date, time) {
-            const templateParams = {
-                to_name: name,
-                from_name: "Booking Service",
-                booking_date: date,
-                booking_time: time,
-                phone: phone,
-                from_email: email
-            };
-
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                }, (err) => {
-                    console.log('FAILED...', err);
-                });
-        }
-
-        // Function to set a reminder email 30 minutes before the booked time
-        function setReminder(name, email, date, time) {
-            const reminderTime = new Date(date + ' ' + time);
-            reminderTime.setMinutes(reminderTime.getMinutes() - 30); // Set reminder for 30 minutes before
-
-            const now = new Date();
-            const timeToReminder = reminderTime - now;
-
-            if (timeToReminder > 0) {
-                setTimeout(() => {
-                    const templateParams = {
-                        to_name: name,
-                        from_name: "Booking Service",
-                        booking_date: date,
-                        booking_time: time,
-                        phone: "N/A",
-                        from_email: email
-                    };
-
-                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                        .then((response) => {
-                            console.log('Reminder sent!', response.status, response.text);
-                        }, (err) => {
-                            console.log('Failed to send reminder...', err);
-                        });
-                }, timeToReminder);
-            }
-        }
-
-        // Function to display booked slots in the list
-        function displayBookedSlots() {
-            const bookedSlotsList = document.getElementById('bookedSlotsList');
-            bookedSlotsList.innerHTML = ''; // Clear the list before adding
-
-            bookedSlots.forEach(slot => {
-                const li = document.createElement('li');
-                li.textContent = slot; // Display the booked slot
-                bookedSlotsList.appendChild(li);
-            });
-        }
-
-        function showMessage(message) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.textContent = message;
-        }
-
-        function clearForm() {
-            document.getElementById('bookingForm').reset();
-            document.getElementById('message').textContent = '';
-            document.getElementById('time').value = ""; // Reset time selection
-        }
-    </script>
+        <div class="Quote-three">
+            <input type="text" placeholder="Search by skills or role">
+            <button>Search Mentors</button>
+        </div>
+        <div class="Quote-four">
+            <button>Startup Founders</button>
+            <button>UX Designers</button>
+            <button>Software Engineers</button>
+            <button>Career Coaches</button>
+            <button>Data Scientists</button>
+        </div>
+    </main>
+    
 </body>
 </html>

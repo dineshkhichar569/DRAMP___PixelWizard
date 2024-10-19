@@ -23,6 +23,7 @@ nav {
 
 nav .logo {
     font-size: 32px;
+    cursor: pointer;
 }
 
 nav ul {
@@ -32,6 +33,138 @@ nav ul {
     justify-content: space-between;
     width: 400px;
 }
+
+nav ul li {
+    cursor: pointer;
+}
+
+
+/* ///////////////////////////////////////////////////////////////  MESSAGE //////////////////////////////////////////////////////////////// */
+
+.message {
+    position: fixed;
+    bottom: 200px;
+    right: 25px;
+    cursor: pointer;
+    transition: transform 1s;
+}
+
+.message img:hover {
+    filter: drop-shadow(0 10px 5px #13695F);
+    transform: rotateZ(10deg) scale(1.2);
+}
+
+.circle {
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+}
+
+.popup {
+    width: 350px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(50%, -50%) scale(0);
+    border-radius: 10px;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+}
+
+.popup.show {
+    transform: translate(-20%, -100%) scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.popup p {
+    text-align: center;
+    font-size: 16px;
+}
+
+.chat-container {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #e3e3e4;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 10px;
+    max-height: 100%;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-box .message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    text-align: left;
+    background-color: #e1f5fe;
+    color: blue;
+    align-self: flex-end;
+}
+
+.message.admin {
+    text-align: left;
+    background-color: #dcedc8;
+    color: green;
+    align-self: flex-start;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#send-btn {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* ///////////////////////////////////////////////////////////////  MESSAGE //////////////////////////////////////////////////////////////// */
+
+
+
 
 .main-one {
     display: flex;
@@ -59,6 +192,7 @@ nav ul {
     position: relative;
     font-size: 60px;
     font-weight: 900;
+    z-index: -1;
 }
 
 .text.first-text {
@@ -97,6 +231,7 @@ nav ul {
     display: flex;
     position: relative;
     margin-top: 50px;
+    z-index: -1;
 }
 
 .Quote-three input {
@@ -180,6 +315,7 @@ nav ul {
     display: flex;
     gap: 15px;
     cursor: pointer;
+    z-index: -1;
 }
 
 .left-side-card {
@@ -234,7 +370,7 @@ nav ul {
 
 .text-box {
     padding: 20px 30px;
-    background: #fff;
+     background: whitesmoke;
     position: relative;
     border-radius: 6px;
     font-size: 15px;
@@ -281,7 +417,7 @@ nav ul {
     z-index: 1;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-left: 15px solid white;
+    border-left: 15px solid whitesmoke;
     right: -14px;
 }
 
@@ -293,7 +429,7 @@ nav ul {
     z-index: 1;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-right: 15px solid white;
+    border-right: 15px solid whitesmoke;
     left: -14px;
 }
 
@@ -307,7 +443,7 @@ nav ul {
     gap: 40px;
 }
 
-.main-three-right{
+.main-three-right {
     width: 60%;
     border-radius: 10px;
     padding: 100px 10px;
@@ -316,27 +452,29 @@ nav ul {
     align-items: flex-start;
     gap: 30px;
 }
-.main-three-right p:nth-of-type(1){
+
+.main-three-right p:nth-of-type(1) {
     font-size: 40px;
     font-weight: 900;
 }
-.main-three-right p:nth-of-type(2){
+
+.main-three-right p:nth-of-type(2) {
     font-size: 20px;
     font-weight: 500;
 }
 
-.main-three-right ul{
+.main-three-right ul {
     font-weight: 600;
     font-size: 18px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding-left: 30px;
-    list-style:disc;
+    list-style: disc;
     padding-bottom: 20px;
 }
 
-.main-three-right button{
+.main-three-right button {
     background-color: #13695F;
     color: white;
     font-size: 20px;
@@ -346,6 +484,7 @@ nav ul {
     border: none;
     cursor: pointer;
 }
+
 .main-three-left {
     width: 40%;
     border-radius: 10px;
@@ -354,13 +493,14 @@ nav ul {
     justify-content: center;
 }
 
-.all-Mentors{
+.all-Mentors {
     display: flex;
     align-items: flex-end;
     justify-content: right;
     margin: 100px;
 }
-.all-Mentors button{
+
+.all-Mentors button {
     background-color: #13695F;
     color: white;
     font-size: 20px;
@@ -372,82 +512,94 @@ nav ul {
 }
 
 
-.main-four{
+.main-four {
     display: flex;
     flex-direction: column;
     gap: 50px;
     margin: 50px;
 }
-.main-four .type-prof{
+
+.main-four .type-prof {
     font-size: 30px;
     font-weight: 900;
 }
-.main-four ul{
+
+.main-four ul {
     display: flex;
     gap: 50px;
     list-style: none;
     margin-bottom: 50px;
 }
-.main-four ul .all-card{
+
+.main-four ul .all-card {
     background-color: antiquewhite;
     width: 300px;
     height: 500px;
     border-radius: 20px;
+    cursor: pointer;
 }
-.all-card div:nth-of-type(1) img{
+
+.all-card div:nth-of-type(1) img {
     background-color: #13695F;
     width: 100%;
     height: 50%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-.all-card .right-side-card{
+
+.all-card .right-side-card {
     padding: 20px;
     line-height: 2;
-    overflow-y:auto;
+    overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
     height: 36%;
     border-radius: 20px;
 }
 
-.main-five{
+.main-five {
     .container {
         max-width: 800px;
         margin: auto;
-        background:#f5faff;
+        background: #f5faff;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         margin-top: 100px;
+        position: relative;
+        z-index: -1;
     }
-    
+
     h1 {
         text-align: center;
         padding: 10px;
     }
-    h2{
+
+    h2 {
         margin-bottom: 30px;
     }
-    h3{
+
+    h3 {
         margin: 30px 0 10px 0;
     }
-    
+
     label {
         display: block;
         margin-top: 10px;
     }
-    
-    input, select, button {
+
+    input,
+    select,
+    button {
         width: 100%;
         padding: 10px;
         margin-top: 5px;
         border: 1px solid #ccc;
         border-radius: 5px;
     }
-    
+
     button {
-        background-color:#13695F;
+        background-color: #13695F;
         color: white;
         border: none;
         cursor: pointer;
@@ -456,25 +608,28 @@ nav ul {
         transition: box-shadow 0.2s;
         margin-top: 30px;
     }
-    
+
     button:hover {
-        background-color:#0b5148;
+        background-color: #0b5148;
         box-shadow: 0 5px 10px #13695F;
     }
-    
+
     .message {
         margin-top: 20px;
         text-align: center;
         font-weight: bold;
         color: red;
     }
-    
+
     .booked {
-        background-color: #ffcccc; /* Light red for booked slots */
-        color: #a00; /* Dark red text */
-        text-decoration: line-through; /* Optional: strike-through for booked slots */
+        background-color: #ffcccc;
+        /* Light red for booked slots */
+        color: #a00;
+        /* Dark red text */
+        text-decoration: line-through;
+        /* Optional: strike-through for booked slots */
     }
-    
+
 }
 
 
@@ -482,21 +637,151 @@ nav ul {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer{
+footer {
     margin-top: 150px;
     background-color: #13695F;
     height: 200px;
+}
+
+
+
+
+/* //////////////////////////// for tablets /////////////////////////////////// */
+
+@media (max-width: 768px){
+
+    /* ///////////////////////////////////// main-one ///////////////////////////////////////////// */
+
+    .main-one {
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        gap: 20px;
+    }
+    
+    .Quote-one {
+        font-size: 18px;
+    }
+    .Quote-two .text {
+        font-size: 50px;
+    }
+    
+    .text.sec-text::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #ffffff;
+        border-left: 5px solid rgb(0, 0, 0);
+        animation: animate 4s steps(12) infinite;
+    }
+
+    .Quote-three {
+        display: flex;
+        position: relative;
+        margin-top: 50px;
+        z-index: -1;
+    }
+    .Quote-three input {
+        width: 600px;
+    }
+
+    /* ///////////////////////////////////// main-one ///////////////////////////////////////////// */
+
+    /* ///////////////////////////////////// main-three ///////////////////////////////////////////// */
+    
+    .main-three {
+        margin: 50px;
+        height: 750px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .main-three-right {
+        height: 60%;
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .main-three-right p:nth-of-type(1) {
+        font-size: 30px;
+        font-weight: 900;
+    }
+    
+    .main-three-right p:nth-of-type(2) {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    
+    .main-three-right ul {
+        font-weight: 600;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .main-three-right button {
+        font-size: 20px;
+        padding: 8px 10px;
+    }
+    
+    .main-three-left {
+        padding-top: 10px;
+        height: 40%;
+        width: 100%;
+    }
+    .main-three-left img{
+        height: 100%;
+    }
+    
+    /* ///////////////////////////////////// main-three///////////////////////////////////////////// */
+
+
+    /* ///////////////////////////////////// main-two///////////////////////////////////////////// */
+    .main-two {
+        margin: 100px 10px;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 100px;
+    }
+    .cards {
+        align-items: center;
+        width: 100%;
+    }
+    
+    .card {
+        width: 650px;
+        z-index: -1;
+    }
+    .left-text {
+        width: 100%;
+        z-index: -1;
+    }
+    .container {
+        padding: 10px 35px;
+        position: relative;
+        width: 50%;
+    }
+    /* ///////////////////////////////////// main-two///////////////////////////////////////////// */
+    
+    /* ///////////////////////////////////// main-four///////////////////////////////////////////// */
+    
+    /* ///////////////////////////////////// main-four///////////////////////////////////////////// */
+
 }

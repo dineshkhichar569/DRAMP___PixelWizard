@@ -12,15 +12,31 @@
         <nav>
             <div class="logo">Mentor</div>
             <ul>
-                <li>Home</li>
-                <li>Contact Us</li>
-                <li>About Us</li>
+                <li class="home">Home</li>
+                <li class="contact">Contact Us</li>
+                <li class="about">About Us</li>
             </ul>
             <div class="theme">
                 dark
             </div>
         </nav>
     </header>
+
+    <div class="message">
+        <img class="circle" id="circle" src="Assets/message.svg" alt="img">
+
+        <div class="popup" id="popup">
+            <div class="chat-container">
+                <div id="chat-box" class="chat-box">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Type your message here..." />
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="main-one">
         <div class="Quote-one">Master a new skill, kickstart your passion project, and achieve the career you’ve always dreamed of.</div>
@@ -159,7 +175,7 @@
     <main class="main-four">
         <p class="type-prof">Professors</p>
         <ul>
-            <li class="all-card">
+            <li class="all-card all-card1">
                 <div class="all-card-left">
                     <img src="Assets/Dr. Birmohan Singh.jpg" alt="">
                 </div>
@@ -170,7 +186,7 @@
                     <p><b>e-mail: </b> birmohansingh@sliet.ac.in , birmohans@gmail.com</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card2">
                 <div class="all-card-left">
                     <img src="Assets/Dr. Damanpreet Singh.jpg" alt="">
                 </div>
@@ -181,7 +197,7 @@
                     <p> <b>e-mail: </b> damanpreets@sliet.ac.in</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card3">
                 <div class="all-card-left">
                     <img src="Assets/Dr. Major Singh Goraya.jpg" alt="">
                 </div>
@@ -192,7 +208,7 @@
                     <p> <b>e-mail: </b> mjrsingh@yahoo.com</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card4">
                 <div class="all-card-left">
                     <img src="Assets/Dr. Manoj Sachan.jpg" alt="">
                 </div>
@@ -206,7 +222,7 @@
         </ul>
         <p class="type-prof">Associate Professors</p>
         <ul>
-            <li class="all-card">
+            <li class="all-card all-card5">
                 <div>
                     <img src="Assets/Dr. Gurjinder Kaur.jpg" alt="">
                 </div>
@@ -220,7 +236,7 @@
         </ul>
         <p class="type-prof">Assistant Professors</p>
         <ul>
-            <li class="all-card">
+            <li class="all-card all-card6">
                 <div>
                     <img src="Assets/Dr. Amar Nath.jpg" alt="">
                 </div>
@@ -231,7 +247,7 @@
                     <p><b>e-mail: </b>amarnath@sliet.ac.in</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card7">
                 <div>
                     <img src="Assets/Dr. Jagdeep Singh.jpg" alt="">
                 </div>
@@ -242,7 +258,7 @@
                     <p> <b>e-mail: </b> jagdeep@sliet.ac.in; jagdeepknit@gmail.com</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card8">
                 <div>
                     <img src="Assets/Dr. Manminder Singh.jpg" alt="">
                 </div>
@@ -253,7 +269,7 @@
                     <p> <b>e-mail: </b>manminderldh@gmail.com, manmindersingh@sliet.ac.in</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card9">
                 <div>
                     <img src="Assets/Dr. Preetpal Kaur Buttar.jpg" alt="">
                 </div>
@@ -267,7 +283,7 @@
         </ul>
         <p class="type-prof">Assistant Professors(Contract)</p>
         <ul>
-            <li class="all-card">
+            <li class="all-card all-card10">
                 <div>
                     <img src="Assets/Sukhpreet Singh.jpg" alt="">
                 </div>
@@ -277,7 +293,7 @@
                     <p><b>e-mail: </b>sukhpreet.manshahia@gmail.com</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card11">
                 <div>
                     <img src="Assets/Dr. Jatinder Pal Singh.jpg" alt="">
                 </div>
@@ -291,7 +307,7 @@
         </ul>
         <p class="type-prof">Guest/Part-Time Teachers</p>
         <ul>
-            <li class="all-card">
+            <li class="all-card all-card12">
                 <div>
                     <img src="Assets/Chinu.jpg" alt="">
                 </div>
@@ -302,7 +318,7 @@
                     <p> <b>e-mail: </b>chinu@sliet.ac.in</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card13">
                 <div>
                     <img src="Assets/Dr. Vikash Kumar Garg.jpg" alt="">
                 </div>
@@ -314,7 +330,7 @@
                     <p> <b>e-mail: </b>contactvikashgarg@gmail.com</p>
                 </div>
             </li>
-            <li class="all-card">
+            <li class="all-card all-card14">
                 <div>
                     <img src="Assets/Sunita Rani.jpg" alt="">
                 </div>
@@ -370,14 +386,15 @@
     <footer></footer>
 
 
+
+
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" ></script>
   <script type="text/javascript">
     (function(){
         emailjs.init("ZS_4gZCNQUb7kD0Bk"); // Replace with your EmailJS user ID
     })();
   </script>
-
-    
     <script src="script.js"></script>
 </body>
 </html>
