@@ -1,23 +1,15 @@
 const text = document.querySelector(".sec-text");
+const words = ["Your Growth", "Web Development", "Hackathon", "Freelance"];
+let index = 0;
 
 const textLoad = () => {
-  setTimeout(() => {
-    text.textContent = " Your Growth";
-  }, 0);
-  setTimeout(() => {
-    text.textContent = " WebDevelopment";
-  }, 4000);
-  setTimeout(() => {
-    text.textContent = " Hackathon";
-  }, 8000);
-  setTimeout(() => {
-    text.textContent = " Freelance";
-  }, 12000);
+    text.textContent = words[index];
+    index = (index + 1) % words.length;
 };
-
 textLoad();
+setInterval(textLoad, 4000);
 
-setInterval(textLoad, 16000);
+
 
 function all(){
     document.querySelector(".main-four").style.display = "none";
@@ -208,7 +200,7 @@ function clearForm() {
                 chatInput.value = '';
 
                 setTimeout(function () {
-                    appendMessage('admin', 'Thanks for your message. We’ll be with you shortly.');
+                    appendMessage('admin', 'Thanks for your message. We will be with you shortly.');
                 }, 1000);
             }
         });
@@ -233,9 +225,52 @@ function clearForm() {
 
 
 
-document.querySelector(".main-four").style.display = "none";
-document.querySelector(".main-five").style.display = "none";
-document.querySelector(".main-one").style.display = "none";
-document.querySelector(".main-two").style.display = "";
-document.querySelector(".main-three").style.display = "none";
-document.querySelector(".all-Mentors").style.display = "none";    
+// document.querySelector(".main-four").style.display = "none";
+// document.querySelector(".main-five").style.display = "none";
+// document.querySelector(".main-one").style.display = "none";
+// document.querySelector(".main-two").style.display = "none";
+// document.querySelector(".main-three").style.display = "none";
+// document.querySelector(".all-Mentors").style.display = "none";    
+
+
+
+
+
+
+
+
+
+/////////////////////////// address ///////////////////////////////////////
+        // JavaScript to show and hide elements one by one when scrolling
+        window.addEventListener('scroll', () => {
+            const containers = document.querySelectorAll('.container');
+            const timeline = document.getElementById('timeline');
+            let delay = 0;
+            let allVisible = true;
+
+            containers.forEach((container, index) => {
+                const rect = container.getBoundingClientRect();
+                
+                if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
+                    // Element is in view, show it
+                    setTimeout(() => {
+                        container.classList.add('show');
+                    }, delay);
+                    delay += 300; // Delay each item by 300ms for sequential effect
+                } else {
+                    // Element is out of view, hide it with a delay in reverse order
+                    setTimeout(() => {
+                        container.classList.remove('show');
+                    }, delay);
+                    delay += 300;
+                    allVisible = false;
+                }
+            });
+
+            // If all containers are visible, fill the timeline line
+            if (allVisible) {
+                timeline.classList.add('fill');
+            } else {
+                timeline.classList.remove('fill');
+            }
+        });

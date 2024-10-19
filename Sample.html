@@ -5,225 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* Base Styles */
-.main-one {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    gap: 20px;
-}
+        .left-text {
+            position: relative;
+            height: 700px;
+            width: 50%;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+        }
+        
+        .container {
+            padding: 10px 35px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .text-box {
+            padding: 20px 30px;
+            background: whitesmoke;
+            position: relative;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        
+        .right-container {
+            left: 50%;
+        }
+        
+        .container img {
+            position: absolute;
+            width: 40px;
+            border-radius: 40px;
+            right: -20px;
+            top: 32px;
+            z-index: 10;
+        }
+        
+        .right-container img {
+            left: -20px;
+        }
+        
+        .timeline::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 100%;
+            background: #dddfe2;
+            top: 0;
+            left: 50%;
+            margin-left: -3px;
+            z-index: -1;
+            transition: height 0.6s ease, background 0.6s ease;
+        }
 
-.Quote-one {
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.Quote-two {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.Quote-two .text {
-    position: relative;
-    font-size: 60px;
-    font-weight: 900;
-    z-index: -1;
-}
-
-.text.first-text {
-    color: black;
-}
-
-.text.sec-text {
-    color: red;
-}
-
-.text.sec-text::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border-left: 5px solid rgb(0, 0, 0);
-    animation: animate 4s steps(12) infinite;
-}
-
-@keyframes animate {
-    40%,
-    60% {
-        left: calc(100% + 4px);
-    }
-
-    100% {
-        left: 0%;
-    }
-}
-
-.Quote-three {
-    display: flex;
-    position: relative;
-    margin-top: 50px;
-    z-index: -1;
-}
-
-.Quote-three input {
-    width: 800px;
-    height: 60px;
-    border-radius: 10px;
-    padding: 15px;
-    border: 1px solid grey;
-    outline: none;
-    font-size: 18px;
-    font-weight: 500;
-    padding-right: 170px;
-}
-
-.Quote-three input::placeholder {
-    font-size: 18px;
-}
-
-.Quote-three button {
-    border-radius: 10px;
-    border: none;
-    height: 50px;
-    width: 150px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: #13695F;
-    color: white;
-    position: absolute;
-    right: 4px;
-    top: 5px;
-}
-
-.Quote-four {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.Quote-four button {
-    background-color: #f5faff;
-    border: none;
-    padding: 4px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
-    color: rgb(60, 60, 60);
-}
-
-.Quote-four button:hover {
-    background-color: lightgray;
-    box-shadow: 0px 6px 10px #f5faff;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    /* Tablet and below */
-    .Quote-two .text {
-        font-size: 40px;
-    }
-
-    .Quote-three input {
-        width: 100%;
-        height: 50px;
-        font-size: 16px;
-        padding-right: 140px;
-    }
-
-    .Quote-three button {
-        height: 45px;
-        width: 130px;
-        font-size: 14px;
-    }
-
-    .Quote-four {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .Quote-four button {
-        font-size: 14px;
-        padding: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Mobile */
-    .main-one {
-        height: auto;
-        padding: 20px;
-    }
-
-    .Quote-one {
-        font-size: 18px;
-    }
-
-    .Quote-two .text {
-        font-size: 30px;
-    }
-
-    .Quote-three {
-        flex-direction: column;
-        margin-top: 30px;
-    }
-
-    .Quote-three input {
-        width: 100%;
-        height: 45px;
-        font-size: 14px;
-        padding-right: 120px;
-    }
-
-    .Quote-three button {
-        height: 40px;
-        width: 120px;
-        font-size: 13px;
-        position: static;
-        margin-top: 10px;
-    }
-
-    .Quote-four {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .Quote-four button {
-        font-size: 12px;
-        padding: 5px;
-    }
-}
-
+        .timeline.fill::after {
+            background: #4CAF50;
+        }
+        
+        .left-container-arrow {
+            height: 0;
+            width: 0;
+            position: absolute;
+            top: 28px;
+            z-index: 1;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid whitesmoke;
+            right: -14px;
+        }
+        
+        .right-container-arrow {
+            height: 0;
+            width: 0;
+            position: absolute;
+            top: 28px;
+            z-index: 1;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid whitesmoke;
+            left: -14px;
+        }
     </style>
 </head>
 <body>
+    <div class="left-text">
+        <div class="timeline" id="timeline">
+            <div class="container left-container">
+                <img src="Assets/earth.svg" alt="img">
+                <div class="text-box">
+                    <h2>Concise : </h2>
+                    <p>"Your career coach, just a click away."</p>
+                    <span class="left-container-arrow"></span>
+                </div>
+            </div>
+            <div class="container right-container">
+                <img src="Assets/earth.svg" alt="img">
+                <div class="text-box">
+                    <h2>Inspiring : </h2>
+                    <p>"A dedicated career coach, ready when you are."</p>
+                    <span class="right-container-arrow"></span>
+                </div>
+            </div>
+            <div class="container left-container">
+                <img src="Assets/earth.svg" alt="img">
+                <div class="text-box">
+                    <h2>Professional : </h2>
+                    <p>"Access expert career guidance anytime, anywhere."</p>
+                    <span class="left-container-arrow"></span>
+                </div>
+            </div>
+            <div class="container right-container">
+                <img src="Assets/earth.svg" alt="img">
+                <div class="text-box">
+                    <h2>Casual : </h2>
+                    <p>"Career coaching made easy, right at your fingertips."</p>
+                    <span class="right-container-arrow"></span>
+                </div>
+            </div>
+            <div class="container left-container">
+                <img src="Assets/earth.svg" alt="img">
+                <div class="text-box">
+                    <h2>Supportive : </h2>
+                    <p>"Your career mentor, always within reach."</p>
+                    <span class="left-container-arrow"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <main class="main-one">
-        <div class="Quote-one">Master a new skill, kickstart your passion project, and achieve the career you’ve always dreamed of.</div>
-        <div class="Quote-two">
-            <span class="text first-text">One Mentor at a Time, </span>
-            <span class="text sec-text"></span>
-        </div>
+    <script>
+        // JavaScript to show elements one by one when in view
+        window.addEventListener('scroll', () => {
+            const containers = document.querySelectorAll('.container');
+            const timeline = document.getElementById('timeline');
+            let delay = 0;
+            let allVisible = true;
 
-        <div class="Quote-three">
-            <input type="text" placeholder="Search by skills or role">
-            <button>Search Mentors</button>
-        </div>
-        <div class="Quote-four">
-            <button>Startup Founders</button>
-            <button>UX Designers</button>
-            <button>Software Engineers</button>
-            <button>Career Coaches</button>
-            <button>Data Scientists</button>
-        </div>
-    </main>
-    
+            containers.forEach((container, index) => {
+                const rect = container.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        container.classList.add('show');
+                    }, delay);
+                    delay += 300; // Delay each item by 300ms for sequential effect
+                } else {
+                    allVisible = false;
+                    container.classList.remove('show');
+                }
+            });
+
+            // If all containers are visible, fill the timeline line
+            if (allVisible) {
+                timeline.classList.add('fill');
+            } else {
+                timeline.classList.remove('fill');
+            }
+        });
+    </script>
 </body>
 </html>
